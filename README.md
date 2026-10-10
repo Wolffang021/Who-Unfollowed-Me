@@ -19,8 +19,6 @@
 
 Instagram lets you download your data as a zip file. This app reads that zip, finds your followers and following lists, compares them by username, and shows everyone you follow who doesn't follow you back. Each name links to their profile, and the list scrolls so long results stay tidy.
 
-## Heads up
-
 An Instagram export is a snapshot of one moment. So the app shows who **isn't following you back right now**, not who unfollowed you or when. Spotting a real unfollow would mean comparing two exports taken at different times.
 
 ## How to use it
