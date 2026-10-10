@@ -31,6 +31,7 @@ export default function FileUpload({ onFileSelected }: FileUploadProps) {
       <ol className="instructions">
         <li>Open Instagram and go to <strong>Accounts Center</strong>, then <strong>Your information and permissions</strong>.</li>
         <li>Choose <strong>Export your information</strong> and <strong>create a new export</strong>.</li>
+        <li>Choose <strong>Export to device</strong>.</li>
         <li>Select <strong>Followers and following</strong> as the data to include.</li>
         <li>Set the format to <strong>JSON</strong> and date range to <strong>All time</strong>, then submit the request.</li>
         <li>When Instagram emails you, download the .zip file and upload it below.</li>
