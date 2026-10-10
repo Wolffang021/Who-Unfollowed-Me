@@ -14,7 +14,7 @@ export default function Footer() {
       <div className="footer-right">
         <p>Check out my other stuff 👇</p>
         <div className="footer-links">
-          <a href="www.linkedin.com/in/shourjo-maitra" target="_blank" rel="noreferrer">
+          <a href="https://linkedin.com/in/shourjo-maitra" target="_blank" rel="noreferrer">
             <FaLinkedin size={16} /> LinkedIn
           </a>
           <a href="https://wolffire21.itch.io/" target="_blank" rel="noreferrer">
