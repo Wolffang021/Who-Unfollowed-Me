@@ -11,7 +11,8 @@ export default function FileUpload({ onFileSelected }: FileUploadProps) {
   const [dragging, setDragging] = useState(false);
 
   function handleFile(file: File | undefined) {
-    if (!file) return;
+    if (!file)
+      return;
 
     if (!file.name.toLowerCase().endsWith(".zip")) {
       setError("Please select a .zip file.");
@@ -28,13 +29,13 @@ export default function FileUpload({ onFileSelected }: FileUploadProps) {
     <section className="upload">
       <h2>How to get your data</h2>
       <ol className="instructions">
-        <li>Open Instagram and go to Accounts Center, then "Your information and permissions".</li>
-        <li>Choose "Export your information" and create a new export.</li>
-        <li>Select "Followers and following" as the data to include.</li>
-        <li>Set the format to <strong>JSON</strong>, then submit the request.</li>
+        <li>Open Instagram and go to Accounts Center, then <strong>Your information and permissions</strong>.</li>
+        <li>Choose <strong>Export your information</strong> and create a new export.</li>
+        <li>Select <strong>Followers and following</strong> as the data to include.</li>
+        <li>Set the format to <strong>JSON</strong> and date range to <strong>All time</strong>, then submit the request.</li>
         <li>When Instagram emails you, download the .zip file and upload it below.</li>
       </ol>
-      <p className="hint">Menu names change from time to time, so they may look slightly different.</p>
+      {/* <p className="hint">Menu names change from time to time, so they may look slightly different.</p> */}
 
       <div
         className={`dropzone ${dragging ? "dragging" : ""}`}
