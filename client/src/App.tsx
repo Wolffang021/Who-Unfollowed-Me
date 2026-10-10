@@ -4,11 +4,15 @@ import './App.css'
 import Header from './components/Header';
 import FileUpload from './components/FileUpload';
 import { readExport } from './utils/ReadExport';
+import { compareResult, type Account } from './utils/CompareResult';
+import ResultList from './components/ResultList';
 import Footer from './components/Footer';
 
 function App() {
   const [file, setFile] = useState<File | null>(null);
   const [screen, setScreen] = useState<'upload' | 'loading' | 'result' | 'error'>('upload');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [resultList, setResultList] = useState<Account[] | null>(null);
 
   async function handleSubmit() {
     if (!file)
@@ -16,19 +20,22 @@ function App() {
     
     setScreen('loading');
 
-    const result = await readExport(file);
+    try {
+      const result = await readExport(file);
+      const list = compareResult(result);
 
-    setScreen('result');
-
-    const followers = result.followers;
-    const following = result.following;
-
-    console.log(following);
-    console.log(followers);
+      setResultList(list);
+      setErrorMessage(null);
+      setScreen('result');
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : 'An unexpected error occurred while reading the export.');
+      setScreen('error');
+    }
   }
 
   function checkAgain() {
     setFile(null);
+    setErrorMessage(null);
     setScreen('upload');
   }
 
@@ -48,15 +55,15 @@ function App() {
         {screen === 'result' && (
           <>
             <h2>Result</h2>
-            <p>The list will show here</p>
+            <ResultList accounts={resultList ?? []}/>
             <button className='submit-btn' onClick={checkAgain}>Check Again</button>
           </>
         )}
 
         {screen === 'error' && (
           <>
-            <h2>Error</h2>
-            <p>Error type will be shown here</p>
+            <h2 className='error'>Error</h2>
+            <p>{errorMessage}</p>
             <button className='submit-btn' onClick={checkAgain}>Try Again</button>
           </>
         )}
