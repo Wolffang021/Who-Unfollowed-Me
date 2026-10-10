@@ -20,7 +20,11 @@ function App() {
 
     setScreen('result');
 
-    console.log(result);
+    const followers = result.followers;
+    const following = result.following;
+
+    console.log(following);
+    console.log(followers);
   }
 
   function checkAgain() {
