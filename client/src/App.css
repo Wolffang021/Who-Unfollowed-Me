@@ -31,7 +31,6 @@
 }
 
 .dropzone {
-  /* width: 60%; */
   border: 2px dashed #888;
   border-radius: 8px;
   padding: 1rem 8rem;
@@ -47,6 +46,22 @@
 
 .error {
   color: #d33;
+}
+
+.submit-btn {
+  display: block;
+  margin: 1.5rem auto;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #646cff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: #454bb2;
 }
 
 .footer {

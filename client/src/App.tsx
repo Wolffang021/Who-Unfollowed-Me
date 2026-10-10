@@ -1,20 +1,28 @@
+import { useState } from 'react';
 import './App.css'
 
-import Header from './components/Header'
+import Header from './components/Header';
 import FileUpload from './components/FileUpload';
-import Footer from './components/Footer'
+import { readExport } from './utils/ReadExport';
+import Footer from './components/Footer';
 
 function App() {
-  function HandleFileSelected(file: File) {
-    console.log("Selection: ", file.name);
-    // readExport(file) goes here in the next step
+  const [file, setFile] = useState<File | null>(null);
+
+  async function handleSubmit() {
+    if (!file)
+      return;
+    
+    const result = await readExport(file);
+    console.log(result);
   }
 
   return (
     <>
       <Header />
       <div className='main'>
-        <FileUpload onFileSelected={HandleFileSelected}/>
+        <FileUpload onFileSelected={setFile}/>
+        <button className='submit-btn' onClick={handleSubmit}>Who Unfollowed Me?</button>
       </div>
       <Footer />
     </>
