@@ -4,6 +4,12 @@
   margin-left: calc(50% - 50vw);
   font-size: medium;
   box-sizing: border-box;
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
 }
 
 .source-link {
@@ -128,6 +134,10 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
   }
 }
 
